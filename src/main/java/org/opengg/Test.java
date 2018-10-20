@@ -1,8 +1,6 @@
 package org.opengg;
 
 import com.google.gson.Gson;
-import net.sf.cglib.beans.BeanGenerator;
-import net.sf.cglib.beans.BeanMap;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -44,6 +42,7 @@ public class Test {
         // 获得bean的实体
         Object object = bean.getObject();
         List<Object> list = new ArrayList<Object>();
+        list.add(object);
 
         Gson gson = new Gson();
         String s = gson.toJson(object);
@@ -51,10 +50,21 @@ public class Test {
 
         // 通过反射查看所有方法名
         Class clazz = object.getClass();
+        String name = clazz.getName();
+        System.out.println(name);
         Method[] methods = clazz.getDeclaredMethods();
         for (int i = 0; i < methods.length; i++) {
             System.out.println(methods[i].getName());
         }
+
+        out(list);
+    }
+
+    public static void out(List<Object> list){
+        Object object = list.get(0);
+        Gson gson = new Gson();
+        String s = gson.toJson(object);
+        System.out.println(s);
     }
 
 }
