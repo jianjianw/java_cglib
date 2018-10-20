@@ -1,5 +1,6 @@
 package org.opengg;
 
+import com.google.gson.Gson;
 import net.sf.cglib.beans.BeanGenerator;
 import net.sf.cglib.beans.BeanMap;
 
@@ -42,6 +43,11 @@ public class Test {
 
         // 获得bean的实体
         Object object = bean.getObject();
+        List<Object> list = new ArrayList<Object>();
+
+        Gson gson = new Gson();
+        String s = gson.toJson(object);
+        System.out.println("============================="+s);
 
         // 通过反射查看所有方法名
         Class clazz = object.getClass();
