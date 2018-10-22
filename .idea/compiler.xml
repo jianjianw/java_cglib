@@ -9,5 +9,8 @@
         <module name="java_cglib" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java_cglib" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

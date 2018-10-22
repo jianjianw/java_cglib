@@ -22,4 +22,17 @@ public class User {
     public void setAge(String age) {
         this.age = age;
     }
+
+    /*@Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
+    }*/
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                '}';
+    }
 }

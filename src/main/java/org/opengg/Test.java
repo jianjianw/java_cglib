@@ -23,8 +23,16 @@ public class Test {
 
         // 生成动态 Bean
         DynamicBean bean = new DynamicBean(propertyMap);
+        DynamicBean bean2 = new DynamicBean(propertyMap);
 
-        // 给 Bean 设置值
+        // 给 Bean2 设置值
+        bean2.setValue("id", new Integer(123));
+
+        bean2.setValue("name", "454");
+
+        bean2.setValue("address", "789");
+
+
         bean.setValue("id", new Integer(123));
 
         bean.setValue("name", "454");
@@ -41,12 +49,23 @@ public class Test {
 
         // 获得bean的实体
         Object object = bean.getObject();
+        Object object2 = bean2.getObject();
         List<Object> list = new ArrayList<Object>();
         list.add(object);
+        list.add(object2);
+
 
         Gson gson = new Gson();
         String s = gson.toJson(object);
+        String substring = s.substring(0);
+        String s2 = gson.toJson(object2);
         System.out.println("============================="+s);
+        System.out.println("============================="+s2);
+
+        String s1 = gson.toJson(list);
+        System.out.println("list================"+s1);
+        String $cglib_prop = s1.replace("$cglib_prop_", "");
+        System.out.println($cglib_prop);//ok
 
         // 通过反射查看所有方法名
         Class clazz = object.getClass();
