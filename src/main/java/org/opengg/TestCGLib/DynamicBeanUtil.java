@@ -79,31 +79,24 @@ public class DynamicBeanUtil {
         user.setAge("132");
 
         Map<String,Object> addMap = new HashMap<String,Object>();
-        addMap.put("uri",3);
+        addMap.put("uri",3D);
         Object dynamicBean = DynamicBeanUtil.getDynamicBean(user,addMap);
-        System.out.println(dynamicBean);
-
-
-        User user2 = new User();
-        Map<String,Object> amp = new HashMap<String,Object>();
-        amp.put("uri",3);
-        Object bean = DynamicBeanUtil.getDynamicBean(user,addMap);
         List<Object> list  = new ArrayList<>();
-        list.add(bean);
+        list.add(dynamicBean);
         Object object = list.get(0);
         Class<?> aClass = object.getClass();
         try {
 
-            Method method = aClass.getDeclaredMethod("setUri", Integer.class);
-            method.invoke(object, new Object[]{123});
+            Method method = aClass.getDeclaredMethod("setUri", Double.class);
+            method.invoke(object, 123D);
 
      /*       Method method = aClass.getDeclaredMethod("getUri");
             Integer invoke = (Integer)method.invoke(object);
             System.out.println(invoke);*/
+            System.out.println();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(dynamicBean);
 
         forList(list);
 
@@ -118,4 +111,37 @@ public class DynamicBeanUtil {
             System.out.println("++++++++++++++++++++++"+s);
         }
     }
+
+
+    @Test
+    public void test(){
+
+   /*     long a = 98;
+        System.out.println((double)98/100d*100);
+        double v = parseDouble(1D / 3d );
+
+        System.out.println(v);*/
+     /*   int count = 0;
+        for (int i = 0; i < 5; i++) {
+            if(count >1){
+                break;
+            }
+            System.out.println(count);
+            count++;
+
+        }
+*/
+        StringBuilder sb = new StringBuilder();
+        sb.append("1111111111111");
+        String s = sb.toString();
+        System.out.println(s);
+        sb.setLength(0);
+        String s1 = sb.toString();
+        System.out.println(s1);
+    }
+
+    public double parseDouble(double result) {
+        return Double.parseDouble(String.format("%.2f", result));
+    }
 }
+
