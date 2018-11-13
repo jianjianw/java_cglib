@@ -254,4 +254,19 @@ public class TestSql {
         System.out.println(i);
 
     }
+
+    @Test
+    public void test011(){
+        Calendar calendar =Calendar.getInstance();
+        calendar.setTimeInMillis(1529650765*1000L);
+        Date time = calendar.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(sdf.format(time));
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        System.out.println(year);
+        System.out.println(month);
+        System.out.println(day);
+    }
 }
