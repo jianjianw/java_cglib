@@ -20,11 +20,11 @@ public class DateTest {
     @Test
     public void test002(){
         // 字符串改为毫秒值
-        String dateStr01 = "2018-11-15 10:00";
+        String test = "2018-11-15 10:00";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         Date date01 = null;
         try {
-            date01 = sdf.parse(dateStr01);
+            date01 = sdf.parse(test);
         } catch (ParseException e) {
             e.printStackTrace();
         }
