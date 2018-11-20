@@ -426,5 +426,24 @@ public class TestSql {
         System.out.println(append.toString());
     }
 
+    @Test
+    public void test017(){
+        List<Integer> list = new ArrayList<>();
+        Integer value01 = 1;
+        Integer value02 = 2;
+        Integer value03 = 3;
+        list.add(value01);
+        list.add(value02);
+        list.add(value03);
+
+        for(int i= list.size() - 1 ; i>=0;i--){
+            Integer integer = list.get(i);
+            if(integer.equals(1)){
+                list.remove(i);
+            }
+        }
+        System.out.println();
+    }
+
 
 }

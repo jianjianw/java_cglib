@@ -11,7 +11,7 @@ public class DateTest {
     @Test
     public void test001(){
         //秒值转化为时间
-        Integer seconds = 1541050200;//1540396800
+        Integer seconds = 1541079000;//1540396800
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String format = sdf.format(new Date(Long.valueOf(seconds + "000")));
         System.out.println(format);
