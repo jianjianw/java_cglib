@@ -417,5 +417,14 @@ public class TestSql {
         return times;
     }
 
+    @Test
+    public void test016(){
+        StringBuilder sb = new StringBuilder();
+        Integer room = null;
+        Integer shoot = null;
+        StringBuilder append = sb.append(room).append("/").append(shoot);
+        System.out.println(append.toString());
+    }
+
 
 }
